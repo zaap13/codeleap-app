@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState, FormEvent } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { useSession } from "next-auth/react";
