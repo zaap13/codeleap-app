@@ -38,6 +38,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              //@ts-ignore
               name: e.currentTarget.name.value,
               email: e.currentTarget.email.value,
               password: e.currentTarget.password.value,
