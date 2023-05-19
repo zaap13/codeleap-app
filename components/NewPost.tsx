@@ -1,22 +1,40 @@
-"use client";
 import { useState, FormEvent } from "react";
+import { useMutation, useQueryClient } from "react-query";
+import { useSession } from "next-auth/react";
+import { createPost } from "actions/api";
+
 interface FormData {
   title: string;
   content: string;
 }
 
 export default function NewPost() {
+  const { data: session } = useSession();
   const [formData, setFormData] = useState<FormData>({
     title: "",
     content: "",
   });
 
+  const queryClient = useQueryClient();
+
+  const createPostMutation = useMutation(
+    (post: FormData) =>
+      createPost({
+        ...post,
+        username: session?.user?.name || "",
+      }),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("posts"); // Invalida a query "posts" para atualizar a lista de posts
+      },
+    }
+  );
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Aqui você pode enviar formData.title e formData.content para a sua API usando fetch ou axios
+    await createPostMutation.mutateAsync(formData);
 
-    // Resetar os campos do formulário
     setFormData({
       title: "",
       content: "",
