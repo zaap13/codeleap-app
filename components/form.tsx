@@ -58,25 +58,6 @@ export default function Form({ type }: { type: "login" | "register" }) {
       }}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
     >
-      {type === "register" && (
-        <div>
-          <label
-            htmlFor="username"
-            className="block text-xs text-gray-600 uppercase"
-          >
-            Username
-          </label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            placeholder="username"
-            autoComplete="username"
-            required
-            className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
-          />
-        </div>
-      )}
       <div>
         <label
           htmlFor="email"
@@ -94,6 +75,24 @@ export default function Form({ type }: { type: "login" | "register" }) {
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
       </div>
+      {type === "register" && (
+        <div>
+          <label
+            htmlFor="username"
+            className="block text-xs text-gray-600 uppercase"
+          >
+            Username
+          </label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="username"
+            required
+            className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+          />
+        </div>
+      )}
       <div>
         <label
           htmlFor="password"
@@ -109,6 +108,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
       </div>
+
       <button
         disabled={loading}
         className={`${
