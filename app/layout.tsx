@@ -30,7 +30,7 @@ export default async function RootLayout({
           <AuthStatus />
         </Suspense>
         <main
-          className={`${roboto.variable} font-sans bg-primary w-full min-h-screen items-center`}
+          className={`${roboto.variable} font-sans bg-primary w-full min-h-screen`}
         >
           {children}
         </main>

@@ -38,7 +38,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              username: e.currentTarget.username.value,
+              name: e.currentTarget.name.value,
               email: e.currentTarget.email.value,
               password: e.currentTarget.password.value,
             }),
@@ -78,16 +78,16 @@ export default function Form({ type }: { type: "login" | "register" }) {
       {type === "register" && (
         <div>
           <label
-            htmlFor="username"
+            htmlFor="name"
             className="block text-xs text-gray-600 uppercase"
           >
-            Username
+            name
           </label>
           <input
-            id="username"
-            name="username"
+            id="name"
+            name="name"
             type="text"
-            placeholder="username"
+            placeholder="name"
             required
             className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
           />
