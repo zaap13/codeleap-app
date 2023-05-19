@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Form from "@/components/form";
 import Link from "next/link";
+import logo from "public/logo.png";
 
 export default function Login() {
   return (
@@ -9,7 +10,7 @@ export default function Login() {
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src={logo}
               priority
               alt="Logo"
               className="h-10 w-10 rounded-full"
