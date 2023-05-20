@@ -81,7 +81,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
   };
 
   return (
-    <div className="w-full rounded-[16px] border-[1px] border-postBorder mb-[24px]">
+    <div className="w-full rounded-[16px] border-[1px] border-postBorder mb-[24px] font-sans">
       <div className="flex h-70px w-full bg-blue p-[24px] rounded-t-[16px] text-white justify-between items-center">
         <h2 className="font-bold text-[22px]">{post.title}</h2>
         {post.username === session?.user?.name && (
@@ -103,8 +103,8 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
       </div>
       {isEditModalOpen && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-8 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Edit Post</h2>
+          <div className="bg-white p-8 rounded-lg sm:w-[600px]">
+            <h2 className="text-xl font-bold mb-4">Edit Item</h2>
             <form onSubmit={handleEditFormSubmit}>
               <div className="mb-4">
                 <label
@@ -119,7 +119,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
                   type="text"
                   value={editFormData.title}
                   onChange={handleEditFormChange}
-                  className="border border-gray-300 rounded-md px-4 py-2 mt-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 mt-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   required
                 />
               </div>
@@ -135,7 +135,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
                   name="content"
                   value={editFormData.content}
                   onChange={handleEditFormChange}
-                  className="border border-gray-300 rounded-md px-4 py-2 mt-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 mt-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   required
                 ></textarea>
               </div>
@@ -143,13 +143,13 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
                 <button
                   type="button"
                   onClick={handleEditModalClose}
-                  className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg mr-2"
+                  className="text-black border-[1px] font-bold py-2 px-4 rounded-lg mr-2"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue text-white py-2 px-4 rounded-lg font-bold"
+                  className="bg-green-500 text-white py-2 px-4 rounded-lg font-bold"
                 >
                   Save
                 </button>
@@ -161,8 +161,9 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
       {isDeleteModalOpen && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Delete Post</h2>
-            <p>Are you sure you want to delete this post?</p>
+            <h2 className="text-xl font-bold mb-4">
+              Are you sure you want to delete this item?
+            </h2>
             <div className="flex justify-end">
               <button
                 type="button"
