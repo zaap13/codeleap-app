@@ -81,7 +81,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
   };
 
   return (
-    <div className="w-full rounded-[16px] border-[1px] border-postBorder mb-[24px] font-sans">
+    <div className="w-full rounded-[16px] border-[1px] border-postBorder mb-[24px]">
       <div className="flex h-70px w-full bg-blue p-[24px] rounded-t-[16px] text-white justify-between items-center">
         <h2 className="font-bold text-[22px]">{post.title}</h2>
         {post.username === session?.user?.name && (

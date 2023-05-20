@@ -1,4 +1,3 @@
-// These styles apply to every route in the application
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Roboto_Flex as Roboto } from "next/font/google";
@@ -30,7 +29,7 @@ export default async function RootLayout({
           <AuthStatus />
         </Suspense>
         <main
-          className={`${roboto.variable} font-sans bg-primary w-full min-h-screen`}
+          className={`font-sans bg-primary w-full min-h-screen`}
         >
           {children}
         </main>

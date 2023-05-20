@@ -21,7 +21,6 @@ export const authOptions: NextAuthOptions = {
             email,
           },
         });
-        // if user doesn't exist or password doesn't match
         if (!user || !(await compare(password, user.password))) {
           throw new Error("Invalid name or password");
         }
